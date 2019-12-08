@@ -1,9 +1,11 @@
 package com.example.food_order_and_delivery.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.food_order_and_delivery.NavigationDrawer;
+import com.example.food_order_and_delivery.SearchActivity;
 import com.example.food_order_and_delivery.adapters.ImageAdapter;
 import com.example.food_order_and_delivery.R;
 import com.example.food_order_and_delivery.adapters.RestaurantsRecyclerAdapter;
@@ -30,6 +33,8 @@ public class HomeFragment extends Fragment {
     private ViewPager viewPager;
     private RecyclerView recyclerView;
 
+    ImageView liquors;
+
     private int[] mImageIds = new int[] {R.drawable.cokeandmomo, R.drawable.momo, R.drawable.burger, R.drawable.pizza};
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -38,6 +43,8 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
+
+        liquors = root.findViewById(R.id.liquorimg);
          viewPager = root.findViewById(R.id.viewPager);
         ImageAdapter adapter = new ImageAdapter(root.getContext(), mImageIds);
         viewPager.setAdapter(adapter);
@@ -46,11 +53,22 @@ public class HomeFragment extends Fragment {
         restlist.add(new Restaurants("Momotaro", "Thamel","98038383938", R.drawable.chowmein));
         restlist.add(new Restaurants("Bajekosekuwa", "Sinamangal","327209375", R.drawable.pizza));
         restlist.add(new Restaurants("Burgers point", "Dillibazar","6757587548648", R.drawable.burger));
+        restlist.add(new Restaurants("pizza Hut", "Durbarmarg","848488483939", R.drawable.pizza));
+
+
 
 
         RestaurantsRecyclerAdapter restaurantsRecyclerAdapter = new RestaurantsRecyclerAdapter(root.getContext(), restlist);
         recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext(),LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(restaurantsRecyclerAdapter);
+
+        liquors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new SliderTimer(), 4000, 3000);
@@ -74,6 +92,8 @@ public class HomeFragment extends Fragment {
                     }
                 }
             });
+
+
         }
     }
 }

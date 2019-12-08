@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="fitXY"
+        android:id="@+id/searchimg"
+        android:src="@drawable/liquorsnackground"/>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="250dp"
+        android:background="#8000"
+        />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="125dp"
+        android:id="@+id/restaurantlogo"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:layout_toRightOf="@id/restaurantlogo"
+        android:text="Local Liquors"
+        android:textSize="20dp"
+        android:id="@+id/localliquor"
+        android:layout_marginTop="150dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        />
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/searchimg"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <ImageView
+            android:id="@+id/imageliquor"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:src="@drawable/foods"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/liquorname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:paddingLeft="128dp"
+            android:paddingTop="85dp"
+            android:textColor="#8b0000"
+            android:text="liquor name"/>
+
+        <TextView
+            android:id="@+id/liqprice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:paddingLeft="128dp"
+            android:textColor="#000000"
+            android:layout_marginTop="100dp"
+            android:text="price"/>
+
+    </RelativeLayout>
+</RelativeLayout>
