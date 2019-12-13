@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.food_order_and_delivery.model.Foods;
 import com.example.food_order_and_delivery.model.Liquors;
@@ -12,13 +13,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
-    private RecyclerView liquiotListView,commentview;
+    private RecyclerView liquirRecy;
     private List<Liquors> liquorList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+
+
+        liquirRecy = findViewById(R.id.liquorRec);
 
         liquorList.add(new Liquors("Blacklabel", "1000", "this is best wiskey"));
         liquorList.add(new Liquors("Redlabel", "1110", "wiskey second "));
